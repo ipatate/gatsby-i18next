@@ -1,9 +1,10 @@
-const i18n = require("i18next")
 // import XHR from "i18next-xhr-backend"
 // import axios from "axios"
+const i18n = require("i18next")
 // import Backend from "i18next-node-fs-backend"
 const LanguageDetector = require("i18next-browser-languagedetector")
 const { initReactI18next } = require("react-i18next")
+// const isBrowser = typeof window !== "undefined"
 
 i18n
   //   .use(XHR)
@@ -13,18 +14,10 @@ i18n
     whitelist: ["en", "fr"],
     resources: {
       en: {
-        translations: {
-          heading: "Shwmae, bonjour, and hola!",
-          description:
-            "Available in English, Welsh, French, and Spanish, with more translations coming soon. doopoll is great for local, multi-lingual, and global organisations.",
-        },
+        translations: require("../locales/en/translations.json"),
       },
       fr: {
-        translations: {
-          heading: "Hello world",
-          description:
-            "Available in English, Welsh, French, and Spanish, with more translations coming soon. doopoll is great for local, multi-lingual, and global organisations.",
-        },
+        translations: require("../locales/fr/translations.json"),
       },
     },
     // backend: {
@@ -36,7 +29,7 @@ i18n
     ns: ["translations"],
     defaultNS: "translations",
 
-    // debug: true,
+    debug: true,
     react: {
       await: true,
       useSuspense: false,

@@ -29,6 +29,7 @@ exports.onCreatePage = props => {
       lang: defaultLang,
     },
   })
+  const _id = (+new Date()).toString(36)
   // map languages and create page for each language
   languages.map(lang => {
     const newPage = Object.assign({}, page)
@@ -40,7 +41,7 @@ exports.onCreatePage = props => {
       context: {
         ...newPage.context,
         lang,
-        _id: (+new Date()).toString(36),
+        _id,
       },
     })
   })
